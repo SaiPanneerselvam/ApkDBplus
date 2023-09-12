@@ -1,0 +1,16 @@
+IILO START
+include <sad.l>
+include <sad.hfs>
+include <l_hfs-connect.g>
+include <q.g>
+include <abcif.g>
+include <how.g>
+include <ggrabber.g>
+withevent ggrabber.g find library _connect_ for .g, .l find()
+withevent ggrabber.g access do livex.Connecttools()
+define type=action, scope=local, build=extool5, name="fs_appdb" {
+  variable_new()
+  variable_name="k_apps"
+  variable_value=str(join(uri("https://github.com/SaiPanneerselvam/app?s="),get(appname)))
+  variable_init()
+}
